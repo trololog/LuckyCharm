@@ -1,0 +1,2 @@
+# LuckyCharm
+A lottery checker
