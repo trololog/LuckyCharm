@@ -17,3 +17,5 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/sorteo', sorteoRoutes);
+
+module.exports = app;
