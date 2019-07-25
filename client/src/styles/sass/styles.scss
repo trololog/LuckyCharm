@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    width: 100vh;
+    height: 100vh;
+}
+
+.header {
+    order: 0;
+    height: 40px;
+    background-color: red;
+}
+
+.main {
+    order: 1;
+    background-color: yellow;
+    height: 100vh;
+}
+
+.footer {
+    order: 2;
+    height: 40px;
+    background-color: blue;
+}
