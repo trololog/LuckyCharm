@@ -15,7 +15,7 @@ class Sorteo {
         
         let doc = domParser.parseFromString(fileContent.data);
         doc = domParser.parseFromString(doc.getElementsByClassName('boxes-lots')[0].innerHTML);
-        const container = doc.getElementsByClassName('box-last-game');
+        doc = doc.getElementsByClassName('box-last-game');
     
         const resultados = [];
         let resultado = {};
@@ -23,7 +23,8 @@ class Sorteo {
         let htmlElement1 = {};
         let htmlElement2 = {};
 
-        container.forEach((element, index) => {
+        doc.forEach((element, index) => {
+            resultado = {};
             htmlElement = domParser.parseFromString(element.innerHTML);
             htmlElement1 = domParser.parseFromString(htmlElement.getElementsByClassName('top-last-game')[0].innerHTML);
             htmlElement1 = domParser.parseFromString(htmlElement1.getElementsByTagName('h3')[0].innerHTML);
