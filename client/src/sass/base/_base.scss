@@ -5,3 +5,24 @@
     padding: 0;
     box-sizing: inherit;
 }
+
+html {
+    font-size: 62.5%;
+}
+
+.fas, .fab, .far {
+    font-weight:900;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    width: 100%;
+    height: 100vh;
+}

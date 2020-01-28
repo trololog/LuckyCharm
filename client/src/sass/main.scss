@@ -1,31 +1,20 @@
 @import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/function";
+
 @import "base/base";
+@import "base/animations";
 @import "base/typography";
+@import "base/utilities";
+
+@import "pages/home";
+
+@import "components/table/base";
+
+@import "layout/content";
+@import "layout/footer";
+@import "layout/middle";
+@import "layout/sidebar";
+@import "layout/header";
 
 
-.container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: stretch;
-    width: 100vh;
-    height: 100vh;
-}
-
-.header {
-    order: 0;
-    height: 40px;
-    background-color: red;
-}
-
-.main {
-    order: 1;
-    background-color: yellow;
-    height: 100vh;
-}
-
-.footer {
-    order: 2;
-    height: 40px;
-    background-color: blue;
-}
