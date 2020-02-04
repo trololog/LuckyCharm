@@ -1,6 +1,6 @@
 export const baseElements = {
     searchBar: document.querySelector('.header__search-bar'),
-    mainContainer: document.querySelector('.view-container')
+    mainContainer: document.querySelector('.content')
 };
 
 export const elementStrings = {
@@ -9,10 +9,13 @@ export const elementStrings = {
 
 export const renderLoader = parent => {
     const loader = `
-        <div>
+        <div class="page-loader">
+            <span>Loading</span>
             <i class="fas fa-circle-notch"></i>
         </div>
     `;
+
+    baseElements.mainContainer.innerHTML = loader;
 }
 
 export const clearLoader = () => {
