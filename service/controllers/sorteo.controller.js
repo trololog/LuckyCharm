@@ -1,9 +1,11 @@
 const Sorteo = require('../models/sorteo.model');
 
 exports.getResultados = (req, res, next) => {
-    const rest = new Sorteo();
+    const sorteo = new Sorteo();
 
-    rest.getResultados().then((result) => {
+
+
+    sorteo.getResultadosFromSite().then((result) => {
         res.status(200).json({
             message: 'OK',
             result: result

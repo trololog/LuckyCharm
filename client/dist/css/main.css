@@ -29,15 +29,40 @@ body {
   line-height: 1.7;
   color: #777; }
 
+.header-secondary {
+  font-size: 2rem;
+  text-align: center; }
+
+.u-margin-bottom-small {
+  margin-bottom: 1.5rem; }
+
+.u-small-column-25 {
+  width: 25rem; }
+
 .table {
   border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
-  border-radius: 2px; }
+  border-radius: 4px; }
   .table th {
-    border: 1px solid black; }
+    border: 1px solid black;
+    font-weight: normal;
+    font-size: 1.6rem; }
   .table td {
-    border: 1px solid black; }
+    border: 1px solid black;
+    font-size: 1.4rem;
+    padding: 5px; }
+
+.result-ball {
+  display: inline-block;
+  padding: 2px;
+  margin: 2px;
+  border: 1px solid orange;
+  background-image: linear-gradient(to right, yellow, #cccc00);
+  border-radius: 50%;
+  min-width: 30px;
+  text-align: center;
+  font-size: 1.2rem; }
 
 .page-loader {
   font-size: 2rem;
