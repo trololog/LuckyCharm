@@ -1,11 +1,14 @@
 const Sorteo = require('../models/sorteo.model');
 
-exports.getResultados = (req, res, next) => {
-    const sorteo = new Sorteo();
+exports.getResultados = async (req, res, next) => {
+    const result = await Sorteo.getResultados();
 
+    res.status(200).json({
+        message: 'OK',
+        result: result
+    });
 
-
-    sorteo.getResultadosFromSite().then((result) => {
+    /*Sorteo.getResultados().then((result) => {
         res.status(200).json({
             message: 'OK',
             result: result
@@ -15,5 +18,5 @@ exports.getResultados = (req, res, next) => {
         res.status(500).json({
             error: error
         });
-    });
+    });*/
 }

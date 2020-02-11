@@ -1,6 +1,19 @@
 const express = require("express");
 const sorteoRoutes = require("./routes/sorteo.routes");
 const bodyParser = require("body-parser");
+const config = require("./config");
+const mongoose = require("mongoose");
+
+const db = config.connectionStrings.db.replace('<password>','user1');
+
+mongoose.connect(db, {useNewUrlParser: true})
+  .then(()=> {
+    console.log('Connected to the db');
+  })
+  .catch((error)=>
+  {
+    console.log(error);
+  });
 
 const app = express();
 
