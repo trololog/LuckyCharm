@@ -20,20 +20,24 @@ const sorteoQuery = SorteoModel.find();
 module.exports.getResultados = async () => {
     let resultados = {};
     
+    resultados = await getResultadosFromSite();
+
     const dbResult = await getLastUpdatedRecord();
 
-    if(!dbResult) {
-        console.log('aqui entra');
+    if(!dbResult || dbResult.length === 0) {
+        await insertResultados(resultados);
+    } else {
+        const maxSorteo = resultados.sort((a,b) => { return a.numero - b.numero; });
+        console.log(maxSorteo);
     }
 
-    resultados = await getResultadosFromSite();
     return resultados;
 }
 
 function getLastUpdatedRecord() {
     return new Promise((resolve, reject) => {
         sorteoQuery.sort({ creation_date: -1 })
-                    .limit(1)
+                    .limit(14)
                     .then(document => {
                         resolve(document);
                     })
@@ -75,4 +79,25 @@ async function getResultadosFromSite() {
         });
 
         return resultados;
+}
+
+function insertResultados(resultados) {
+    const dbResultados = resultados.map((resultado) => {
+        return { 
+            numeroSorteo: resultado.numero,
+            fechaSorteo: resultado.fecha,
+            bolillas: resultado.bolillas,
+            creation_date: new Date()
+        };
+    });
+
+    return new Promise((resolve, reject) => {
+        SorteoModel.insertMany(dbResultados, function(err, docs) {
+          if(err) {
+              reject(err);
+          } else {
+              resolve(docs);
+          }
+        });
+    });
 }
