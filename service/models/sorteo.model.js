@@ -27,8 +27,12 @@ module.exports.getResultados = async () => {
     if(!dbResult || dbResult.length === 0) {
         await insertResultados(resultados);
     } else {
-        const maxSorteo = resultados.sort((a,b) => { return a.numero - b.numero; });
-        console.log(maxSorteo);
+        const minCurrentSorteo = resultados.sort((a,b) => { return a.numero - b.numero; })[0];
+        const maxSorteoDb = dbResult.sort((a,b) => { return b.numeroSorteo - a.numeroSorteo; })[0];
+        
+        if(minCurrentSorteo.numero > maxSorteoDb.numeroSorteo) {
+            //await insertResultados(resultados);
+        }
     }
 
     return resultados;
@@ -83,9 +87,10 @@ async function getResultadosFromSite() {
 
 function insertResultados(resultados) {
     const dbResultados = resultados.map((resultado) => {
+        var fechaItems = resultado.fecha.split('/');
         return { 
             numeroSorteo: resultado.numero,
-            fechaSorteo: resultado.fecha,
+            fechaSorteo: new Date(`${ fechaItems[2] }-${ fechaItems[1] }-${ fechaItems[0] }`),
             bolillas: resultado.bolillas,
             creation_date: new Date()
         };

@@ -33,7 +33,7 @@ export default class SorteoView {
                 <td>${resultado.numero}</td>
                 <td>${resultado.fecha}</td>
                 <td>${resultado.bolillas.map(b=> this.renderBolilla(b)).join('')}</td>
-                <td><a href=""></a></td>
+                <td><a data-resultnro="${resultado.numero}" class="button-compare" href="#">Comparar</a></td>
             </tr>
         `;
     }
