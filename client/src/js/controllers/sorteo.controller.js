@@ -19,7 +19,9 @@ export default class SorteoController {
 
             const resultados = await sorteoModel.getResultados();
             clearLoader();
+            
             sorteoView.renderResultados(resultados);
+            sorteoView.addEvents();
     
             clearLoader();
 

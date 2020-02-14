@@ -73,6 +73,14 @@ body {
   padding-top: 1rem;
   width: 100%; }
 
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #777; }
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer; }
+
 .content {
   order: 1;
   background-color: #f7f7f7;

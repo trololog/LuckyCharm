@@ -1,10 +1,7 @@
 import { baseElements } from './base';
 
-
-
 export default class SorteoView {
     renderResultados(resultados) {
-        console.log(resultados);
         const markup = `<section class="results-container">
                             <h2 class="header-secondary u-margin-bottom-small">ULTIMOS RESULTADOS</h2> 
                             <table class="table">
@@ -33,7 +30,7 @@ export default class SorteoView {
                 <td>${resultado.numero}</td>
                 <td>${resultado.fecha}</td>
                 <td>${resultado.bolillas.map(b=> this.renderBolilla(b)).join('')}</td>
-                <td><a data-resultnro="${resultado.numero}" class="button-compare" href="#">Comparar</a></td>
+                <td><a data-resultnro="${resultado.numero}" class="button-compare">Comparar</a></td>
             </tr>
         `;
     }
@@ -41,6 +38,13 @@ export default class SorteoView {
     renderBolilla(bolilla) {
         return `<span class="result-ball">${bolilla}</span>`;
     }
-}
 
-//<td><span class="result-ball">${resultado.bolillas.join(" ")}</span></td>
+    addEvents() {
+        const container = document.querySelector('.results-container');
+        container.addEventListener('click', e => {
+            if(e.target.matches('.button-compare')) {
+                
+            }
+        });
+    }
+}
