@@ -6,7 +6,8 @@
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  height: 100%; }
 
 .fas, .fab, .far {
   font-weight: 900; }
@@ -103,8 +104,11 @@ a {
 
 .sidebar {
   width: 20rem;
-  background-color: green;
-  order: 0; }
+  background-color: #ffffff;
+  order: 0;
+  padding: 0.5rem; }
+  .sidebar .nav {
+    font-size: 2rem; }
 
 .header {
   order: 0;

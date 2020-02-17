@@ -27,12 +27,12 @@ module.exports.getResultados = async () => {
     if(!dbResult || dbResult.length === 0) {
         await insertResultados(resultados);
     } else {
-        const minCurrentSorteo = resultados.sort((a,b) => { return a.numero - b.numero; })[0];
-        const maxSorteoDb = dbResult.sort((a,b) => { return b.numeroSorteo - a.numeroSorteo; })[0];
-        
-        if(minCurrentSorteo.numero > maxSorteoDb.numeroSorteo) {
-            //await insertResultados(resultados);
-        }
+        const delta = resultados.filter(item => {
+            return !dbResult.find(dbItem => dbItem.numeroSorteo === item.numero);
+        });
+
+        if(delta.length > 0)
+            await insertResultados(delta);
     }
 
     return resultados;

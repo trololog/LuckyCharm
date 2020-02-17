@@ -1,5 +1,10 @@
 .sidebar {
     width: 20rem;
-    background-color:green;
+    background-color:#ffffff;
     order: 0;
+    padding: 0.5rem;
+
+    .nav {
+        font-size: 2rem;
+    }
 }

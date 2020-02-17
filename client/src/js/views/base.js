@@ -1,5 +1,6 @@
 export const baseElements = {
     searchBar: document.querySelector('.header__search-bar'),
+    navBar: document.querySelector('.sidebar'),
     mainContainer: document.querySelector('.content')
 };
 
